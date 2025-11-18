@@ -6,7 +6,7 @@ export interface PriceData {
   buy_price_max: number;
 }
 
-const BASE_URL = "https://www.albion-online-data.com/api/v2/stats/Prices/";
+const BASE_URL = "https://europe.albion-online-data.com/api/v2/stats/Prices/";
 
 export async function getPricesItems(category: {
   T4: string[];
@@ -27,7 +27,7 @@ export async function getPricesItems(category: {
   const allItemsArray = allTiersArrays.flat();
   const allItemsString = allItemsArray.join(",");
 
-  const url = `${BASE_URL}${allItemsString}.json?locations=${locations}&qualities=1`;
+  const url = `${BASE_URL}${allItemsString}.json?locations=${locations}&qualities=1&time-scale=24`;
   try {
     const response = await fetch(url, {
       next: {
